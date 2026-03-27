@@ -49,25 +49,30 @@ const projects = [
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
 };
 
 const ProjectsSection = () => (
-  <section id="projects" className="py-24">
+  <section id="projects" className="py-28 section-gradient">
     <div className="container mx-auto px-6">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-heading font-bold mb-12"
+        className="mb-16"
       >
-        Things I've Built
-      </motion.h2>
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
+          Things I've Built
+        </h2>
+        <p className="text-muted-foreground max-w-lg">
+          From intelligent agents to computer vision pipelines — projects that solve real problems.
+        </p>
+      </motion.div>
 
       <motion.div
         variants={container}
@@ -81,8 +86,7 @@ const ProjectsSection = () => (
             key={project.title}
             href="#"
             variants={item}
-            whileHover={{ scale: 1.03, y: -4 }}
-            className={`glass-card p-6 group cursor-pointer glow-blue-hover transition-shadow duration-300 ${
+            className={`glow-border-card tilt-card p-6 group cursor-pointer ${
               project.large ? "md:col-span-2" : ""
             }`}
           >
@@ -91,23 +95,23 @@ const ProjectsSection = () => (
                 {project.badge}
               </span>
             )}
-            <h3 className="text-lg font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
+            <h3 className="text-lg font-heading font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
               {project.title}
             </h3>
-            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+            <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-1.5 mb-4">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 text-[10px] rounded-full border border-border bg-secondary/50 text-muted-foreground"
+                  className="px-2.5 py-1 text-[10px] rounded-full border border-border/50 bg-secondary/30 text-muted-foreground"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <span className="inline-flex items-center gap-1 text-xs text-primary font-medium">
+            <span className="inline-flex items-center gap-1 text-xs text-primary font-medium group-hover:gap-2 transition-all duration-300">
               View Project <ArrowUpRight size={12} />
             </span>
           </motion.a>

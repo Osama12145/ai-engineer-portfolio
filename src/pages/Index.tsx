@@ -9,9 +9,10 @@ import Footer from "@/components/Footer";
 
 const Index = () => (
   <>
+    <div className="mesh-gradient-bg" />
     <div className="noise-overlay" />
     <Navbar />
-    <main>
+    <main className="relative z-10">
       <HeroSection />
       <SkillsSection />
       <ProjectsSection />

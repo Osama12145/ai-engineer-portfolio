@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import SkillsMarquee from "@/components/SkillsMarquee";
+import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
+import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -14,10 +15,11 @@ const Index = () => (
     <Navbar />
     <main className="relative z-10">
       <HeroSection />
-      <SkillsSection />
-      <ProjectsSection />
       <ExperienceSection />
+      <SkillsMarquee />
+      <ProjectsSection />
       <EducationSection />
+      <CertificationsSection />
       <ContactSection />
     </main>
     <Footer />

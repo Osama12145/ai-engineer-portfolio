@@ -1,24 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin, Send } from "lucide-react";
 
 const ContactSection = () => {
-  const formRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  useEffect(() => {
-    if (!formRef.current) return;
-    const script = document.createElement("script");
-    script.src = "https://form.jotform.com/jsform/260885228071056";
-    script.type = "text/javascript";
-    script.async = true;
-    formRef.current.appendChild(script);
-
-    return () => {
-      if (formRef.current) {
-        formRef.current.innerHTML = "";
-      }
-    };
-  }, []);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Webhook integration placeholder
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
     <section id="contact" className="py-24">
@@ -27,51 +19,87 @@ const ContactSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-12"
         >
           <p className="text-xs font-semibold text-primary uppercase tracking-[0.2em] mb-2">GET IN TOUCH</p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold">
             Contact
           </h2>
-          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Open to AI Engineering roles, freelance AI automation projects, and collaborations.
-          </p>
         </motion.div>
 
-        {/* Jotform embed */}
-        <motion.div
+        <motion.form
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto glass-card p-6 md:p-8 rounded-2xl mb-10"
+          className="max-w-2xl space-y-8 mb-12"
         >
-          <div ref={formRef} className="jotform-container" />
-        </motion.div>
+          <div>
+            <label className="block text-sm font-medium text-primary mb-2">Name</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="Your name"
+              required
+              className="w-full px-4 py-3 rounded-lg bg-card/40 backdrop-blur-md border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+            />
+          </div>
 
-        {/* Social links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
-        >
-          <a
-            href="mailto:osama12145@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-blue"
-          >
-            <Mail size={16} /> osama12145@gmail.com
-          </a>
-          <a
-            href="https://linkedin.com/in/osama--naji"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-secondary text-secondary-foreground font-medium text-sm hover:bg-border transition-all"
-          >
-            <Linkedin size={16} /> LinkedIn
-          </a>
-        </motion.div>
+          <div>
+            <label className="block text-sm font-medium text-primary mb-2">Email</label>
+            <input
+              type="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="your@email.com"
+              required
+              className="w-full px-4 py-3 rounded-lg bg-card/40 backdrop-blur-md border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+            />
+          </div>
 
-        <p className="text-center inline-flex items-center gap-1.5 text-sm text-muted-foreground w-full justify-center">
+          <div>
+            <label className="block text-sm font-medium text-primary mb-2">Message</label>
+            <textarea
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Type message"
+              required
+              rows={6}
+              className="w-full px-4 py-3 rounded-lg bg-card/40 backdrop-blur-md border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-y"
+            />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-blue"
+            >
+              <Send size={16} /> Say Hello
+            </button>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="https://linkedin.com/in/osama--naji"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="p-2.5 rounded-lg border border-border/50 bg-card/30 text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="mailto:osama12145@gmail.com"
+                aria-label="Email"
+                className="p-2.5 rounded-lg border border-border/50 bg-card/30 text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+        </motion.form>
+
+        <p className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
           <MapPin size={14} /> Based in Saudi Arabia 🇸🇦
         </p>
       </div>

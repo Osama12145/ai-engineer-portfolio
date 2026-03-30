@@ -36,7 +36,7 @@ const projects = [
     tags: ["Python", "Flask", "ML", "NLP", "HTML/CSS/JS"],
     description:
       "ML-based system detecting phishing emails and URLs via NLP feature extraction. Full-stack Flask implementation.",
-    badge: "Graduation Project · GPA 4.95",
+    badge: "Graduation Project · Grade: A+",
   },
   {
     title: "Arabic Sentiment Analysis Model",

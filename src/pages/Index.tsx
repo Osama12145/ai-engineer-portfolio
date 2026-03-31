@@ -9,6 +9,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AnimatedStars from "@/components/AnimatedStars";
+import AIChatBubble from "@/components/AIChatBubble";
 
 const Index = () => (
   <>
@@ -27,6 +28,7 @@ const Index = () => (
       <ContactSection />
     </main>
     <Footer />
+    <AIChatBubble />
   </>
 );
 

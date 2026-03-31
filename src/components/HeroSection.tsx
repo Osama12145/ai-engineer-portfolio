@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Download, Linkedin, Mail } from "lucide-react";
 import astronautImg from "@/assets/astronaut.png";
 
@@ -15,6 +15,26 @@ const HeroSection = () => {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [deleting, setDeleting] = useState(false);
+
+  // Mouse tracking for 3D astronaut
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [15, -15]), { stiffness: 100, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-15, 15]), { stiffness: 100, damping: 30 });
+  const translateX = useSpring(useTransform(mouseX, [-300, 300], [-10, 10]), { stiffness: 100, damping: 30 });
+  const translateY = useSpring(useTransform(mouseY, [-300, 300], [-10, 10]), { stiffness: 100, damping: 30 });
+
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      mouseX.set(e.clientX - centerX);
+      mouseY.set(e.clientY - centerY);
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     const current = titles[titleIndex];
@@ -39,7 +59,6 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-      {/* Decorative orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
 
@@ -49,7 +68,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
             className="flex-1 text-center lg:text-left"
           >
             {/* Status badge */}
@@ -133,12 +152,13 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Astronaut */}
+          {/* 3D Interactive Astronaut */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
             className="flex-shrink-0 hidden md:block"
+            style={{ perspective: 1000 }}
           >
             <motion.img
               src={astronautImg}
@@ -146,6 +166,12 @@ const HeroSection = () => {
               width={380}
               height={380}
               className="drop-shadow-[0_0_40px_hsl(217,91%,60%,0.3)]"
+              style={{
+                rotateX,
+                rotateY,
+                x: translateX,
+                y: translateY,
+              }}
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />

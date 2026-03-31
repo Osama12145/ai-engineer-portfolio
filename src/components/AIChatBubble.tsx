@@ -8,7 +8,7 @@ interface Message {
   content: string;
 }
 
-const N8N_WEBHOOK_URL = "https://n8n-webhook-placeholder.example.com/webhook/ai-chat";
+const N8N_WEBHOOK_URL = "https://n8n-wowswooswkwgwwk0ks0c0g8s.72.60.130.203.sslip.io/webhook/portfolio-chat";
 
 const AIChatBubble = () => {
   const [open, setOpen] = useState(false);

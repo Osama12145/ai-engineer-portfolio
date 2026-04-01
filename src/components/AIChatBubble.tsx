@@ -39,11 +39,14 @@ const AIChatBubble = () => {
         body: JSON.stringify({ message: userMsg.content, history: messages }),
       });
 
-      if (!res.ok) throw new Error("Failed");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      setMessages((prev) => [...prev, { role: "assistant", content: data.reply || data.output || "I couldn't process that. Please try again." }]);
-    } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I'm currently offline. Please reach out via the contact form above!" }]);
+      console.log("N8N Response:", JSON.stringify(data));
+      const output = Array.isArray(data) ? data[0]?.output : data.output || data.reply;
+      setMessages((prev) => [...prev, { role: "assistant", content: output || "No response received." }]);
+    } catch (err: any) {
+      console.error("Chat error:", err);
+      setMessages((prev) => [...prev, { role: "assistant", content: `Error: ${err.message}. Please try again or use the contact form.` }]);
     } finally {
       setLoading(false);
     }

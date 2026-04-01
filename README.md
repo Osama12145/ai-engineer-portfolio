@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Welcome to Osama Naji's Portfolio
 
 TODO: Document your project here

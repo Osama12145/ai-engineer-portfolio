@@ -8,7 +8,12 @@ interface Message {
   content: string;
 }
 
-const N8N_WEBHOOK_URL = "https://n8n-wowswooswkwgwwk0ks0c0g8s.72.60.130.203.sslip.io/webhook/portfolio-chat";
+const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL || "";
+const N8N_API_KEY = import.meta.env.VITE_N8N_API_KEY || "";
+
+const RATE_LIMIT_MS = 3000;
+const MAX_MESSAGE_LENGTH = 500;
+const MAX_HISTORY = 10;
 
 const AIChatBubble = () => {
   const [open, setOpen] = useState(false);
@@ -17,7 +22,9 @@ const AIChatBubble = () => {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [rateLimited, setRateLimited] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const lastSentRef = useRef(0);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -26,27 +33,58 @@ const AIChatBubble = () => {
   }, [messages]);
 
   const sendMessage = async () => {
-    if (!input.trim() || loading) return;
-    const userMsg: Message = { role: "user", content: input.trim() };
+    const trimmed = input.trim();
+    if (!trimmed || loading || rateLimited) return;
+
+    // Rate limiting
+    const now = Date.now();
+    if (now - lastSentRef.current < RATE_LIMIT_MS) {
+      setRateLimited(true);
+      setTimeout(() => setRateLimited(false), RATE_LIMIT_MS);
+      return;
+    }
+    lastSentRef.current = now;
+
+    // Sanitize: cap length
+    const sanitized = trimmed.slice(0, MAX_MESSAGE_LENGTH);
+    const userMsg: Message = { role: "user", content: sanitized };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setLoading(true);
 
     try {
+      if (!N8N_WEBHOOK_URL) throw new Error("Chat service unavailable");
+
+      // Send only last N messages to limit payload size
+      const recentHistory = messages.slice(-MAX_HISTORY);
+
       const res = await fetch(N8N_WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMsg.content, history: messages }),
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-KEY": N8N_API_KEY,
+        },
+        body: JSON.stringify({ message: sanitized, history: recentHistory }),
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      console.log("N8N Response:", JSON.stringify(data));
-      const output = Array.isArray(data) ? data[0]?.output : data.output || data.reply;
+      if (!res.ok) throw new Error("Request failed");
+
+      // Robust response parsing — handle JSON or plain text
+      const text = await res.text();
+      let output = "";
+      try {
+        const data = JSON.parse(text);
+        output = Array.isArray(data)
+          ? data[0]?.output ?? ""
+          : data.output ?? data.reply ?? "";
+      } catch {
+        // If response isn't valid JSON, use raw text
+        output = text;
+      }
+
       setMessages((prev) => [...prev, { role: "assistant", content: output || "No response received." }]);
-    } catch (err: any) {
-      console.error("Chat error:", err);
-      setMessages((prev) => [...prev, { role: "assistant", content: `Error: ${err.message}. Please try again or use the contact form.` }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "assistant", content: "Something went wrong. Please try again or use the contact form." }]);
     } finally {
       setLoading(false);
     }
@@ -128,7 +166,7 @@ const AIChatBubble = () => {
                 />
                 <button
                   onClick={sendMessage}
-                  disabled={loading || !input.trim()}
+                  disabled={loading || rateLimited || !input.trim()}
                   className="px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:brightness-110 transition-all disabled:opacity-50"
                 >
                   <Send size={16} />

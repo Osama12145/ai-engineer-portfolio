@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Mail, MapPin, CheckCircle } from "lucide-react";
 
-const JOTFORM_URL = "https://submit.jotform.com/submit/260885228071056";
+const JOTFORM_URL = import.meta.env.VITE_JOTFORM_URL || "";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });

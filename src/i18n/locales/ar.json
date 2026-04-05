@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "experience": "الخبرات",
+    "skills": "المهارات",
+    "projects": "المشاريع",
+    "education": "التعليم",
+    "contact": "تواصل"
+  },
+  "hero": {
+    "statusBadge": "متاح لأدوار AI",
+    "name": "أسامة علي ناجي",
+    "titles": ["AI Engineer", "Data Scientist", "Deep Learning Architect", "Computer Vision Engineer", "Agentic AI & RAG Specialist"],
+    "bio": "مهندس AI حاصل على مرتبة الشرف الأولى، يبني أنظمة ذكية جاهزة للإنتاج — من ML/DL و Computer Vision إلى Agentic AI و RAG pipelines. مقيم في المملكة العربية السعودية.",
+    "viewProjects": "عرض المشاريع",
+    "downloadCv": "تحميل السيرة الذاتية",
+    "astronautAlt": "رائد فضاء عائم"
+  },
+  "experience": {
+    "title": "أين عملت",
+    "subtitle": "رحلتي في مجال الذكاء الاصطناعي",
+    "items": [
+      {
+        "role": "AI Engineer",
+        "company": "Tytan KSA",
+        "period": "أغسطس 2025 – مارس 2026",
+        "type": "دوام كامل · حضوري",
+        "points": [
+          "قدت قسم AI بشكل مستقل — صممت ونشرت نماذج ML/DL لتحسين عمليات التوصيل",
+          "بنيت AI automation agents باستخدام n8n لتبسيط العمليات الداخلية",
+          "طوّرت لوحات معلومات Power BI لمتابعة مؤشرات أداء التوصيل"
+        ]
+      },
+      {
+        "role": "AI, Backend & Database Intern",
+        "company": "SIT – IT Solutions",
+        "period": "فبراير 2025 – مايو 2025",
+        "type": "تدريب",
+        "points": [
+          "بنيت تطبيقات مدعومة بـ AI، صممت قواعد بيانات علائقية، وطوّرت RESTful APIs",
+          "خبرة عملية في Data Science وتكامل AI وتطوير Backend"
+        ]
+      },
+      {
+        "role": "Research & Development Leader",
+        "company": "Wae (وعي)",
+        "period": "نوفمبر 2024 – يونيو 2025",
+        "type": "تطوع · الرياض، هجين",
+        "points": [
+          "قدت ورش عمل للتوعية بـ AI في أنحاء المملكة العربية السعودية",
+          "أدرت مشاريع R&D مدعومة بـ AI وطوّرت محتوى تعليمي"
+        ]
+      },
+      {
+        "role": "Artificial Intelligence Intern",
+        "company": "Taibah Valley",
+        "period": "يوليو 2023 – أغسطس 2023",
+        "type": "تدريب · المدينة المنورة",
+        "points": [
+          "طوّرت نموذج تحليل مشاعر عربي عالي الدقة",
+          "بنيت خط أنابيب كامل لجمع البيانات ومعالجتها"
+        ]
+      }
+    ]
+  },
+  "skillsMarquee": {
+    "title": "الخبرات والأدوات",
+    "subtitle": "الأدوات التي أستخدمها لبناء الحلول الذكية."
+  },
+  "projects": {
+    "title": "أعمالي ومشاريعي",
+    "subtitle": "من الأنظمة الذكية إلى Computer Vision — مشاريع تحل مشاكل حقيقية.",
+    "viewProject": "عرض المشروع",
+    "items": [
+      {
+        "title": "Hotel Customer Service Agent — WhatsApp AI Bot",
+        "description": "نظام Agentic AI متكامل يتعامل مع استفسارات الفنادق عبر WhatsApp. خط أنابيب RAG يربط قاعدة معرفة الفندق بـ LLM للردود السياقية بالعربية والإنجليزية.",
+        "badge": null
+      },
+      {
+        "title": "Underwater Scene Segmentation",
+        "description": "ضبط دقيق لـ U-Net مع encoder من EfficientNet-B1 لتقسيم دلالي تحت الماء بـ 8 فئات. خط أنابيب ML كامل مع Dataset class مخصص.",
+        "badge": null
+      },
+      {
+        "title": "YouHealth — AI Medical Chatbot",
+        "description": "مساعد AI يحوّل محادثات المرضى إلى تقارير طبية منظمة. تم ترشيحه لمسرعة GAIA AI.",
+        "badge": "🥈 المركز الثاني · هاكاثون SoundAI (سدايا)"
+      },
+      {
+        "title": "AI-Powered Crowd & Traffic Monitoring",
+        "description": "نظام AI للمدن الذكية يجمع بين Object Detection و Action Recognition وخرائط حرارية للمناطق لتحليلات السلامة.",
+        "badge": null
+      },
+      {
+        "title": "PhishWarden — Phishing Detection System",
+        "description": "نظام ML للكشف عن رسائل وروابط التصيد عبر استخراج ميزات NLP. تطبيق Full-stack بـ Flask.",
+        "badge": "مشروع التخرج · التقدير: A+"
+      },
+      {
+        "title": "Arabic Sentiment Analysis Model",
+        "description": "نموذج تحليل مشاعر عالي الدقة للنصوص العربية — تم بناؤه خلال التدريب في Taibah Valley. يتضمن خط أنابيب بيانات كامل.",
+        "badge": null
+      }
+    ]
+  },
+  "education": {
+    "title": "التعليم",
+    "items": [
+      {
+        "institution": "Taibah University",
+        "degree": "بكالوريوس علوم حاسب — مرتبة الشرف الأولى",
+        "period": "2020 – 2024",
+        "detail": "المعدل 4.95/5.0 · مشروع التخرج: PhishWarden"
+      },
+      {
+        "institution": "KAUST",
+        "degree": "تخصص — Artificial Intelligence",
+        "period": "أكتوبر 2024 – فبراير 2025"
+      },
+      {
+        "institution": "Apple Developer Academy | TUWAIQ",
+        "degree": "منحة تعليمية — iOS Dev, Swift, UI/UX",
+        "period": "أكتوبر 2025 – نوفمبر 2025"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "الشهادات",
+    "items": [
+      "Apple Developer Academy — Apple (Nov 2025)",
+      "Machine Learning Specialization — Stanford (Dec 2025)",
+      "Associate AI Engineer for Data Scientists — DataCamp (Jul 2025)",
+      "IBM Machine Learning Professional — IBM (May 2025)",
+      "Deep Learning Specialization — DeepLearning.AI (May 2025)",
+      "AI Program (Intro & Advanced) — KAUST (Feb 2025)",
+      "McKinsey Forward Program — McKinsey (Dec 2024)",
+      "Python 3 Programming — University of Michigan (Nov 2024)",
+      "Track of Artificial Intelligence — FutureX (Mar 2023)"
+    ]
+  },
+  "skills": {
+    "title": "الخبرات والأدوات",
+    "subtitle": "من أساسيات ML إلى أنظمة AI الإنتاجية — الأدوات التي أستخدمها لبناء الحلول الذكية."
+  },
+  "contact": {
+    "sectionLabel": "تواصل معي",
+    "title": "تواصل",
+    "thankYouTitle": "شكراً لك!",
+    "thankYouMessage": "تم إرسال رسالتك. سأرد عليك قريباً.",
+    "nameLabel": "الاسم",
+    "emailLabel": "البريد الإلكتروني",
+    "messageLabel": "الرسالة",
+    "namePlaceholder": "اسمك",
+    "emailPlaceholder": "بريدك@email.com",
+    "messagePlaceholder": "اكتب رسالتك",
+    "sending": "جاري الإرسال...",
+    "sendMessage": "إرسال الرسالة",
+    "location": "مقيم في المملكة العربية السعودية 🇸🇦"
+  },
+  "footer": {
+    "text": "© 2026 أسامة ناجي · بُني بهدف"
+  },
+  "chat": {
+    "headerTitle": "المساعد الذكي لأسامة",
+    "headerSubtitle": "مدعوم بـ RAG Agent",
+    "thinking": "يفكر...",
+    "placeholder": "اسأل عن أسامة...",
+    "greeting": "أهلاً بك! أنا المساعد الذكي للمهندس أسامة. تقدر تسألني عن خبراته، مهاراته، أو المشاريع اللي اشتغل عليها.\n\nHi! I'm Osama's AI assistant. Ask me about his experience, skills, or projects.",
+    "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى أو استخدام نموذج التواصل.",
+    "noResponse": "لم يتم استلام رد."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "عفواً! الصفحة غير موجودة",
+    "backHome": "العودة للرئيسية"
+  }
+}

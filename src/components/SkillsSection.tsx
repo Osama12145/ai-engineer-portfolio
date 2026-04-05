@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const skillCategories = [
@@ -42,6 +43,7 @@ const pillVariant = {
 };
 
 const SkillsSection = () => {
+  const { t } = useTranslation();
   let globalIndex = 0;
 
   return (
@@ -54,10 +56,10 @@ const SkillsSection = () => {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            Expertise & Stack
+            {t("skills.title")}
           </h2>
           <p className="text-muted-foreground max-w-lg">
-            From core ML foundations to production AI systems — tools I use to build intelligent solutions.
+            {t("skills.subtitle")}
           </p>
         </motion.div>
 

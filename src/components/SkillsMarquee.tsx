@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const tools = [
@@ -18,32 +19,36 @@ const MarqueeRow = ({ reverse = false }: { reverse?: boolean }) => (
   </div>
 );
 
-const SkillsMarquee = () => (
-  <section id="skills" className="py-20 section-gradient overflow-hidden">
-    <div className="container mx-auto px-6 mb-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-          Expertise & Stack
-        </h2>
-        <p className="text-muted-foreground max-w-lg">
-          Tools I use to build intelligent solutions.
-        </p>
-      </motion.div>
-    </div>
+const SkillsMarquee = () => {
+  const { t } = useTranslation();
 
-    <div className="space-y-4">
-      <div className="marquee-wrapper bg-card/30 backdrop-blur-md border-y border-border/30">
-        <MarqueeRow />
+  return (
+    <section id="skills" className="py-20 section-gradient overflow-hidden">
+      <div className="container mx-auto px-6 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
+            {t("skillsMarquee.title")}
+          </h2>
+          <p className="text-muted-foreground max-w-lg">
+            {t("skillsMarquee.subtitle")}
+          </p>
+        </motion.div>
       </div>
-      <div className="marquee-wrapper bg-card/20 backdrop-blur-md border-y border-border/20">
-        <MarqueeRow reverse />
+
+      <div className="space-y-4">
+        <div className="marquee-wrapper bg-card/30 backdrop-blur-md border-y border-border/30">
+          <MarqueeRow />
+        </div>
+        <div className="marquee-wrapper bg-card/20 backdrop-blur-md border-y border-border/20">
+          <MarqueeRow reverse />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default SkillsMarquee;

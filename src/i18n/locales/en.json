@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "statusBadge": "Open to AI Roles",
+    "name": "OSAMA ALI NAJI",
+    "titles": ["AI Engineer", "Data Scientist", "Deep Learning Architect", "Computer Vision Engineer", "Agentic AI & RAG Specialist"],
+    "bio": "AI Engineer with First-Class Honors building production-ready intelligent systems — from core ML/DL and Computer Vision to Agentic AI workflows and RAG pipelines. Based in Saudi Arabia.",
+    "viewProjects": "View Projects",
+    "downloadCv": "Download CV",
+    "astronautAlt": "Floating astronaut"
+  },
+  "experience": {
+    "title": "Where I've Worked",
+    "subtitle": "My journey through AI — from research intern to leading an AI division.",
+    "items": [
+      {
+        "role": "AI Engineer",
+        "company": "Tytan KSA",
+        "period": "Aug 2025 – Mar 2026",
+        "type": "Full-time · On-site",
+        "points": [
+          "Independently led the AI division — designed & deployed ML/DL models for delivery optimization",
+          "Built AI automation agents using n8n to streamline internal workflows",
+          "Developed Power BI dashboards for real-time delivery KPI visibility"
+        ]
+      },
+      {
+        "role": "AI, Backend & Database Intern",
+        "company": "SIT – IT Solutions",
+        "period": "Feb 2025 – May 2025",
+        "type": "Internship",
+        "points": [
+          "Built AI-integrated apps, designed relational databases, developed RESTful APIs",
+          "Hands-on experience in data science, AI integration, and backend development"
+        ]
+      },
+      {
+        "role": "Research & Development Leader",
+        "company": "Wae (وعي)",
+        "period": "Nov 2024 – Jun 2025",
+        "type": "Volunteer · Riyadh, Hybrid",
+        "points": [
+          "Led AI awareness workshops across Saudi Arabia",
+          "Directed AI-driven R&D projects and developed educational content"
+        ]
+      },
+      {
+        "role": "Artificial Intelligence Intern",
+        "company": "Taibah Valley",
+        "period": "Jul 2023 – Aug 2023",
+        "type": "Internship · Medina",
+        "points": [
+          "Developed high-accuracy Arabic sentiment analysis model",
+          "Conducted full data acquisition and preprocessing pipeline"
+        ]
+      }
+    ]
+  },
+  "skillsMarquee": {
+    "title": "Expertise & Stack",
+    "subtitle": "Tools I use to build intelligent solutions."
+  },
+  "projects": {
+    "title": "Things I've Built",
+    "subtitle": "From intelligent agents to computer vision pipelines — projects that solve real problems.",
+    "viewProject": "View Project",
+    "items": [
+      {
+        "title": "Hotel Customer Service Agent — WhatsApp AI Bot",
+        "description": "End-to-end Agentic AI system handling hotel inquiries via WhatsApp. RAG pipeline connects hotel knowledge base to an LLM for context-aware responses in Arabic and English.",
+        "badge": null
+      },
+      {
+        "title": "Underwater Scene Segmentation",
+        "description": "Fine-tuned U-Net with EfficientNet-B1 encoder for 8-class underwater semantic segmentation. Full ML pipeline with custom Dataset class, training loops, and visualization.",
+        "badge": null
+      },
+      {
+        "title": "YouHealth — AI Medical Chatbot",
+        "description": "AI assistant converting patient conversations into structured medical reports. Nominated for GAIA AI Accelerator.",
+        "badge": "🥈 2nd Place · SoundAI Hackathon (SDAIA)"
+      },
+      {
+        "title": "AI-Powered Crowd & Traffic Monitoring",
+        "description": "Real-time smart city AI system combining object detection, action recognition, and zone-based heatmaps for safety analytics.",
+        "badge": null
+      },
+      {
+        "title": "PhishWarden — Phishing Detection System",
+        "description": "ML-based system detecting phishing emails and URLs via NLP feature extraction. Full-stack Flask implementation.",
+        "badge": "Graduation Project · Grade: A+"
+      },
+      {
+        "title": "Arabic Sentiment Analysis Model",
+        "description": "High-accuracy sentiment analysis model for Arabic text — built during internship at Taibah Valley. Includes full data pipeline.",
+        "badge": null
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "institution": "Taibah University",
+        "degree": "BSc Computer Science — First Class Honors",
+        "period": "2020 – 2024",
+        "detail": "GPA 4.95/5.0 · Graduation Project: PhishWarden"
+      },
+      {
+        "institution": "KAUST",
+        "degree": "Specialization — Artificial Intelligence",
+        "period": "Oct 2024 – Feb 2025"
+      },
+      {
+        "institution": "Apple Developer Academy | TUWAIQ",
+        "degree": "Education Scholarship — iOS Dev, Swift, UI/UX",
+        "period": "Oct 2025 – Nov 2025"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certifications",
+    "items": [
+      "Apple Developer Academy — Apple (Nov 2025)",
+      "Machine Learning Specialization — Stanford (Dec 2025)",
+      "Associate AI Engineer for Data Scientists — DataCamp (Jul 2025)",
+      "IBM Machine Learning Professional — IBM (May 2025)",
+      "Deep Learning Specialization — DeepLearning.AI (May 2025)",
+      "AI Program (Intro & Advanced) — KAUST (Feb 2025)",
+      "McKinsey Forward Program — McKinsey (Dec 2024)",
+      "Python 3 Programming — University of Michigan (Nov 2024)",
+      "Track of Artificial Intelligence — FutureX (Mar 2023)"
+    ]
+  },
+  "skills": {
+    "title": "Expertise & Stack",
+    "subtitle": "From core ML foundations to production AI systems — tools I use to build intelligent solutions."
+  },
+  "contact": {
+    "sectionLabel": "GET IN TOUCH",
+    "title": "Contact",
+    "thankYouTitle": "Thank You!",
+    "thankYouMessage": "Your message has been sent. I'll get back to you soon.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "messagePlaceholder": "Type message",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "location": "Based in Saudi Arabia 🇸🇦"
+  },
+  "footer": {
+    "text": "© 2026 Osama Naji · Built with purpose"
+  },
+  "chat": {
+    "headerTitle": "Osama's AI Assistant",
+    "headerSubtitle": "Powered by RAG Agent",
+    "thinking": "Thinking...",
+    "placeholder": "Ask about Osama...",
+    "greeting": "أهلاً بك! أنا المساعد الذكي للمهندس أسامة. تقدر تسألني عن خبراته، مهاراته، أو المشاريع اللي اشتغل عليها.\n\nHi! I'm Osama's AI assistant. Ask me about his experience, skills, or projects.",
+    "errorMessage": "Something went wrong. Please try again or use the contact form.",
+    "noResponse": "No response received."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "backHome": "Return to Home"
+  }
+}

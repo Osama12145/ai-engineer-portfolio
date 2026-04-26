@@ -64,42 +64,120 @@
   },
   "skillsMarquee": {
     "title": "Expertise & Stack",
-    "subtitle": "Tools I use to build intelligent solutions."
+    "subtitle": "The full stack I use in production-minded AI builds, from agents and vector search to deep learning."
   },
   "projects": {
-    "title": "Things I've Built",
-    "subtitle": "From intelligent agents to computer vision pipelines — projects that solve real problems.",
-    "viewProject": "View Project",
+    "title": "Selected Projects",
+    "subtitle": "Agentic AI, RAG, and computer vision systems shaped around real use cases and measurable outcomes.",
+    "featuredLabel": "Featured Build",
+    "highlightsLabel": "Highlights",
+    "outcomeLabel": "Key Outcome",
+    "moreLabel": "More Projects",
+    "openRepo": "Open Repository",
+    "viewProject": "View on GitHub",
     "items": [
       {
+        "featured": true,
         "title": "Hotel Customer Service Agent — WhatsApp AI Bot",
-        "description": "End-to-end Agentic AI system handling hotel inquiries via WhatsApp. RAG pipeline connects hotel knowledge base to an LLM for context-aware responses in Arabic and English.",
-        "badge": null
+        "subtitle": "WhatsApp-native hotel support automation",
+        "description": "Built an end-to-end Agentic AI workflow that handles room availability, pricing, booking FAQs, and escalation to human staff directly through WhatsApp.",
+        "badge": "Production Workflow",
+        "category": "Agentic AI",
+        "outcome": "Arabic & English RAG responses",
+        "tags": ["LangGraph", "LangChain", "RAG", "EvolutionAPI", "OpenAI API", "ChromaDB"],
+        "highlights": [
+          "Connected hotel policies, room types, and service information to an LLM through a grounded RAG pipeline.",
+          "Delivered accurate bilingual responses in Arabic and English for day-to-day customer inquiries.",
+          "Orchestrated WhatsApp messaging, retrieval, generation, and fallback logic in a single automated flow."
+        ],
+        "url": "https://github.com/Osama12145/Hotel-Customer-Service-Agent-WhatsApp-AI-Bot/tree/main"
       },
       {
-        "title": "Underwater Scene Segmentation",
-        "description": "Fine-tuned U-Net with EfficientNet-B1 encoder for 8-class underwater semantic segmentation. Full ML pipeline with custom Dataset class, training loops, and visualization.",
-        "badge": null
+        "title": "arabic_handwritten_character_project",
+        "subtitle": "Arabic handwritten character recognition and retrieval",
+        "description": "Designed a multi-stage deep learning pipeline for Arabic handwritten characters, benchmarking CNN-from-scratch against EfficientNet-B1 transfer learning before extending the system into embedding-based image retrieval.",
+        "badge": "98.72% Test Accuracy",
+        "category": "Computer Vision",
+        "outcome": "0.987 Macro F1 · 99.17% Top-5",
+        "tags": ["PyTorch", "EfficientNet-B1", "CNN", "Triplet Loss", "Grad-CAM", "Gradio"],
+        "highlights": [
+          "Benchmarked 16,800 images across 28 classes and achieved a +59% performance lift over the scratch model.",
+          "Built cosine-similarity retrieval over learned embeddings with 98.33% Top-1 and 99.17% Top-5 accuracy.",
+          "Refined the embedding space with Triplet Loss, validated it with t-SNE, and wrapped everything in a single Colab + Gradio demo."
+        ],
+        "url": "https://github.com/Osama12145/arabic_handwritten_character_project"
+      },
+      {
+        "title": "underwater-scene-understanding",
+        "subtitle": "Robust underwater scene segmentation benchmark",
+        "description": "Expanded the underwater scene understanding pipeline into a stronger comparative benchmark covering custom, pretrained, and hybrid segmentation architectures.",
+        "badge": "Best mIoU: DeepLabV3+",
+        "category": "Computer Vision",
+        "outcome": "Best Dice: SegFormer",
+        "tags": ["DeepLabV3+", "SegFormer", "U-Net", "EfficientNetV2-S", "PyTorch", "Semantic Segmentation"],
+        "highlights": [
+          "DeepLabV3+ with enhancement delivered the strongest overall mIoU across the benchmark.",
+          "SegFormer achieved the best Dice score, showing the strongest overlap quality among the tested models.",
+          "Enhancement consistently helped pretrained and hybrid models more than the scratch baseline, while multi-task variants did not beat the strongest single-task setups."
+        ],
+        "url": "https://github.com/Osama12145/robust-underwater-scene-understanding"
+      },
+      {
+        "title": "Company Document Chatbot — RAG-Powered AI",
+        "subtitle": "Grounded multilingual document question answering",
+        "description": "Built a RAG chatbot that answers employee questions strictly from uploaded company documents, grounding every answer in retrieved chunks with source-aware retrieval.",
+        "badge": "Dockerized Deployment",
+        "category": "RAG System",
+        "outcome": "Arabic & English document retrieval",
+        "tags": ["LangChain", "FastAPI", "Qdrant", "Cohere API", "Streamlit", "Docker Compose"],
+        "highlights": [
+          "Supported PDF, DOCX, and TXT ingestion while reducing hallucinations through retrieval-first answering.",
+          "Implemented multilingual semantic search using embed-multilingual-v3.0 with configurable similarity thresholds.",
+          "Delivered both a Streamlit UI and a FastAPI REST API, fully containerized for one-command deployment."
+        ],
+        "url": "https://github.com/Osama12145/rag_system_ar"
       },
       {
         "title": "YouHealth — AI Medical Chatbot",
-        "description": "AI assistant converting patient conversations into structured medical reports. Nominated for GAIA AI Accelerator.",
-        "badge": "🥈 2nd Place · SoundAI Hackathon (SDAIA)"
-      },
-      {
-        "title": "AI-Powered Crowd & Traffic Monitoring",
-        "description": "Real-time smart city AI system combining object detection, action recognition, and zone-based heatmaps for safety analytics.",
-        "badge": null
+        "subtitle": "Medical conversation structuring assistant",
+        "description": "AI assistant converting patient conversations into structured medical reports. Nominated for the GAIA AI Accelerator.",
+        "badge": "🥈 2nd Place · SoundAI Hackathon (SDAIA)",
+        "category": "Healthcare AI",
+        "outcome": "Structured medical report generation",
+        "tags": ["Python", "LLM", "NLP", "Healthcare AI", "Prompt Engineering"],
+        "highlights": [
+          "Transforms patient interactions into organized medical summaries for faster follow-up.",
+          "Designed around healthcare-oriented conversational flows and structured output generation."
+        ],
+        "url": "https://github.com/Osama12145/YouHealth.ai"
       },
       {
         "title": "PhishWarden — Phishing Detection System",
+        "subtitle": "ML phishing detection web application",
         "description": "ML-based system detecting phishing emails and URLs via NLP feature extraction. Full-stack Flask implementation.",
-        "badge": "Graduation Project · Grade: A+"
+        "badge": "Graduation Project · Grade: A+",
+        "category": "Cybersecurity",
+        "outcome": "Email + URL phishing classification",
+        "tags": ["Python", "Flask", "ML", "NLP", "Cybersecurity"],
+        "highlights": [
+          "Extracts linguistic and structural signals from suspicious emails and links.",
+          "Wraps the detection pipeline in a full-stack Flask application for practical use."
+        ],
+        "url": "https://github.com/Osama12145/PhishWarden/tree/main"
       },
       {
-        "title": "Arabic Sentiment Analysis Model",
-        "description": "High-accuracy sentiment analysis model for Arabic text — built during internship at Taibah Valley. Includes full data pipeline.",
-        "badge": null
+        "title": "AI-Powered Crowd & Traffic Monitoring",
+        "subtitle": "Smart city monitoring for safety analytics",
+        "description": "Real-time smart city AI system combining object detection, action recognition, and zone-based heatmaps for safety analytics.",
+        "badge": null,
+        "category": "Smart Cities",
+        "outcome": "Detection + action recognition",
+        "tags": ["YOLOv8", "MoViNet", "SORT", "Computer Vision", "Python"],
+        "highlights": [
+          "Combines multi-model perception for crowd behavior and traffic visibility.",
+          "Uses zone-based analytics and heatmaps to support real-time safety monitoring."
+        ],
+        "url": "https://github.com/Osama12145"
       }
     ]
   },
@@ -140,7 +218,15 @@
   },
   "skills": {
     "title": "Expertise & Stack",
-    "subtitle": "From core ML foundations to production AI systems — tools I use to build intelligent solutions."
+    "subtitle": "From LangGraph and Qdrant to PyTorch and Docker, this is the working stack behind my AI systems.",
+    "categories": {
+      "agenticAi": "Agentic AI & Automation",
+      "ragSystems": "LLMs & RAG Pipelines",
+      "computerVision": "Computer Vision",
+      "ml": "ML & Deep Learning",
+      "data": "Data Science",
+      "engineering": "Engineering & Delivery"
+    }
   },
   "contact": {
     "sectionLabel": "GET IN TOUCH",

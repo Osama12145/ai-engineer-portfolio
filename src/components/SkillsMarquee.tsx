@@ -1,18 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { marqueeRows } from "@/data/skills";
 
-const tools = [
-  "AI Agents", "LangChain", "NLP", "NumPy", "Pandas", "PyTorch",
-  "Python", "SQL", "Flask", "FastAPI", "REST APIs", "Git",
-];
-
-const MarqueeRow = ({ reverse = false }: { reverse?: boolean }) => (
+const MarqueeRow = ({ tools, reverse = false }: { tools: string[]; reverse?: boolean }) => (
   <div className="marquee-track overflow-hidden">
     <div className={`marquee-content ${reverse ? "marquee-reverse" : ""}`}>
-      {[...tools, ...tools].map((tool, i) => (
-        <span key={i} className="inline-flex items-center gap-3 px-6 py-3 text-lg md:text-xl font-heading font-semibold text-foreground/80 whitespace-nowrap">
+      {[...tools, ...tools].map((tool, index) => (
+        <span
+          key={`${tool}-${index}`}
+          className="inline-flex items-center gap-3 px-6 py-3 text-lg md:text-xl font-heading font-semibold text-foreground/80 whitespace-nowrap"
+        >
           {tool}
-          <span className="text-primary text-base">✦</span>
+          <Sparkles size={14} className="text-primary shrink-0" />
         </span>
       ))}
     </div>
@@ -33,7 +33,7 @@ const SkillsMarquee = () => {
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
             {t("skillsMarquee.title")}
           </h2>
-          <p className="text-muted-foreground max-w-lg">
+          <p className="text-muted-foreground max-w-2xl">
             {t("skillsMarquee.subtitle")}
           </p>
         </motion.div>
@@ -41,10 +41,10 @@ const SkillsMarquee = () => {
 
       <div className="space-y-4">
         <div className="marquee-wrapper bg-card/30 backdrop-blur-md border-y border-border/30">
-          <MarqueeRow />
+          <MarqueeRow tools={marqueeRows[0]} />
         </div>
         <div className="marquee-wrapper bg-card/20 backdrop-blur-md border-y border-border/20">
-          <MarqueeRow reverse />
+          <MarqueeRow tools={marqueeRows[1]} reverse />
         </div>
       </div>
     </section>

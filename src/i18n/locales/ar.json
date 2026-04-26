@@ -10,7 +10,7 @@
     "statusBadge": "متاح لأدوار AI",
     "name": "أسامة علي ناجي",
     "titles": ["AI Engineer", "Data Scientist", "Deep Learning Architect", "Computer Vision Engineer", "Agentic AI & RAG Specialist"],
-    "bio": "مهندس AI حاصل على مرتبة الشرف الأولى، يبني أنظمة ذكية جاهزة للإنتاج — من ML/DL و Computer Vision إلى Agentic AI و RAG pipelines. مقيم في المملكة العربية السعودية.",
+    "bio": "مهندس AI حاصل على مرتبة الشرف الأولى، يبني أنظمة ذكية جاهزة للإنتاج — من ML/DL وComputer Vision إلى Agentic AI وRAG pipelines. مقيم في المملكة العربية السعودية.",
     "viewProjects": "عرض المشاريع",
     "downloadCv": "تحميل السيرة الذاتية",
     "astronautAlt": "رائد فضاء عائم"
@@ -64,42 +64,120 @@
   },
   "skillsMarquee": {
     "title": "الخبرات والأدوات",
-    "subtitle": "الأدوات التي أستخدمها لبناء الحلول الذكية."
+    "subtitle": "كل الأدوات التي أعتمد عليها في بناء أنظمة AI حقيقية، من Agents وVector Search إلى Deep Learning."
   },
   "projects": {
-    "title": "أعمالي ومشاريعي",
-    "subtitle": "من الأنظمة الذكية إلى Computer Vision — مشاريع تحل مشاكل حقيقية.",
-    "viewProject": "عرض المشروع",
+    "title": "مشاريع مختارة",
+    "subtitle": "مشاريع في Agentic AI وRAG وComputer Vision مبنية على استخدامات حقيقية ونتائج قابلة للقياس.",
+    "featuredLabel": "المشروع الأبرز",
+    "highlightsLabel": "أهم النقاط",
+    "outcomeLabel": "أبرز نتيجة",
+    "moreLabel": "مشاريع أخرى",
+    "openRepo": "فتح المستودع",
+    "viewProject": "عرض على GitHub",
     "items": [
       {
+        "featured": true,
         "title": "Hotel Customer Service Agent — WhatsApp AI Bot",
-        "description": "نظام Agentic AI متكامل يتعامل مع استفسارات الفنادق عبر WhatsApp. خط أنابيب RAG يربط قاعدة معرفة الفندق بـ LLM للردود السياقية بالعربية والإنجليزية.",
-        "badge": null
+        "subtitle": "أتمتة خدمة عملاء الفنادق عبر WhatsApp",
+        "description": "بنيت نظام Agentic AI متكامل يتعامل تلقائيًا مع توفر الغرف والأسعار والأسئلة الشائعة ورفع الحالات للموظفين عبر WhatsApp ضمن سير عمل واحد.",
+        "badge": "Production Workflow",
+        "category": "Agentic AI",
+        "outcome": "ردود RAG بالعربية والإنجليزية",
+        "tags": ["LangGraph", "LangChain", "RAG", "EvolutionAPI", "OpenAI API", "ChromaDB"],
+        "highlights": [
+          "ربطت سياسات الفندق وأنواع الغرف والخدمات مع LLM عبر خط أنابيب RAG grounded.",
+          "قدّم المشروع ردودًا دقيقة وسياقية بالعربية والإنجليزية لاستفسارات العملاء اليومية.",
+          "نسّقت تكامل WhatsApp والاسترجاع وتوليد الردود ومنطق fallback في Pipeline آلي واحد."
+        ],
+        "url": "https://github.com/Osama12145/Hotel-Customer-Service-Agent-WhatsApp-AI-Bot/tree/main"
       },
       {
-        "title": "Underwater Scene Segmentation",
-        "description": "ضبط دقيق لـ U-Net مع encoder من EfficientNet-B1 لتقسيم دلالي تحت الماء بـ 8 فئات. خط أنابيب ML كامل مع Dataset class مخصص.",
-        "badge": null
+        "title": "arabic_handwritten_character_project",
+        "subtitle": "التعرّف على الحروف العربية المكتوبة يدويًا واسترجاع الصور",
+        "description": "طورت Multi-Stage Deep Learning Pipeline للحروف العربية المكتوبة يدويًا، قارنت فيه بين CNN من الصفر وEfficientNet-B1 transfer learning ثم وسّعت النظام إلى Image Retrieval بالاعتماد على Embeddings.",
+        "badge": "98.72% Test Accuracy",
+        "category": "Computer Vision",
+        "outcome": "0.987 Macro F1 · 99.17% Top-5",
+        "tags": ["PyTorch", "EfficientNet-B1", "CNN", "Triplet Loss", "Grad-CAM", "Gradio"],
+        "highlights": [
+          "اختبرت 16,800 صورة عبر 28 فئة وحققت زيادة أداء تقارب 59% مقارنة بالنموذج المبني من الصفر.",
+          "بنيت نظام Image Retrieval يعتمد على cosine similarity وحقق 98.33% Top-1 و99.17% Top-5.",
+          "حسّنت مساحة الـ Embeddings باستخدام Triplet Loss، وراجعتها بصريًا عبر t-SNE، ثم قدّمت Demo تفاعلي بـ Gradio داخل Colab واحد."
+        ],
+        "url": "https://github.com/Osama12145/arabic_handwritten_character_project"
+      },
+      {
+        "title": "underwater-scene-understanding",
+        "subtitle": "Benchmark قوي لفهم المشاهد تحت الماء",
+        "description": "وسّعت مشروع فهم المشاهد تحت الماء إلى مقارنة أقوى بين نماذج التقسيم الدلالي المخصصة وPretrained وHybrid architectures.",
+        "badge": "Best mIoU: DeepLabV3+",
+        "category": "Computer Vision",
+        "outcome": "Best Dice: SegFormer",
+        "tags": ["DeepLabV3+", "SegFormer", "U-Net", "EfficientNetV2-S", "PyTorch", "Semantic Segmentation"],
+        "highlights": [
+          "حقق DeepLabV3+ مع enhancement أفضل mIoU إجمالي في المقارنة.",
+          "حقق SegFormer أعلى Dice score، ما يعكس جودة overlap قوية بين التنبؤ والـ ground truth.",
+          "ساعد enhancement النماذج الـ pretrained والـ hybrid بشكل أوضح من baseline، بينما لم تتفوّق نسخ multi-task على أقوى إعدادات single-task."
+        ],
+        "url": "https://github.com/Osama12145/robust-underwater-scene-understanding"
+      },
+      {
+        "title": "Company Document Chatbot — RAG-Powered AI",
+        "subtitle": "محادثة ذكية مبنية على مستندات الشركة",
+        "description": "بنيت RAG chatbot يجيب على أسئلة الموظفين اعتمادًا فقط على مستندات الشركة المرفوعة، مع grounding لكل إجابة في المقاطع المسترجعة من الملفات.",
+        "badge": "Dockerized Deployment",
+        "category": "RAG System",
+        "outcome": "استرجاع عربي وإنجليزي للمستندات",
+        "tags": ["LangChain", "FastAPI", "Qdrant", "Cohere API", "Streamlit", "Docker Compose"],
+        "highlights": [
+          "يدعم رفع PDF وDOCX وTXT ويقلل الهلوسة عبر أسلوب retrieval-first answering.",
+          "نفذت multilingual semantic search باستخدام embed-multilingual-v3.0 مع Qdrant وحدود تشابه قابلة للضبط.",
+          "سلّمت واجهتين معًا: Streamlit للمستخدم النهائي وFastAPI REST API للتكامل البرمجي، وكل ذلك داخل Docker Compose."
+        ],
+        "url": "https://github.com/Osama12145/rag_system_ar"
       },
       {
         "title": "YouHealth — AI Medical Chatbot",
+        "subtitle": "مساعد لتنظيم المحادثات الطبية",
         "description": "مساعد AI يحوّل محادثات المرضى إلى تقارير طبية منظمة. تم ترشيحه لمسرعة GAIA AI.",
-        "badge": "🥈 المركز الثاني · هاكاثون SoundAI (سدايا)"
-      },
-      {
-        "title": "AI-Powered Crowd & Traffic Monitoring",
-        "description": "نظام AI للمدن الذكية يجمع بين Object Detection و Action Recognition وخرائط حرارية للمناطق لتحليلات السلامة.",
-        "badge": null
+        "badge": "🥈 المركز الثاني · هاكاثون SoundAI (سدايا)",
+        "category": "Healthcare AI",
+        "outcome": "توليد تقارير طبية منظمة",
+        "tags": ["Python", "LLM", "NLP", "Healthcare AI", "Prompt Engineering"],
+        "highlights": [
+          "يحوّل تفاعلات المرضى إلى ملخصات طبية منظمة تسهّل المتابعة واتخاذ القرار.",
+          "صُمم حول Conversational Flows طبية ومخرجات Structured قابلة للاستخدام."
+        ],
+        "url": "https://github.com/Osama12145/YouHealth.ai"
       },
       {
         "title": "PhishWarden — Phishing Detection System",
+        "subtitle": "تطبيق ويب لاكتشاف التصيد باستخدام ML",
         "description": "نظام ML للكشف عن رسائل وروابط التصيد عبر استخراج ميزات NLP. تطبيق Full-stack بـ Flask.",
-        "badge": "مشروع التخرج · التقدير: A+"
+        "badge": "مشروع التخرج · التقدير: A+",
+        "category": "Cybersecurity",
+        "outcome": "تصنيف رسائل وروابط التصيد",
+        "tags": ["Python", "Flask", "ML", "NLP", "Cybersecurity"],
+        "highlights": [
+          "يستخرج إشارات لغوية وبنيوية من الرسائل والروابط المشبوهة.",
+          "يوفر خط الكشف داخل تطبيق Flask متكامل قابل للاستخدام العملي."
+        ],
+        "url": "https://github.com/Osama12145/PhishWarden/tree/main"
       },
       {
-        "title": "Arabic Sentiment Analysis Model",
-        "description": "نموذج تحليل مشاعر عالي الدقة للنصوص العربية — تم بناؤه خلال التدريب في Taibah Valley. يتضمن خط أنابيب بيانات كامل.",
-        "badge": null
+        "title": "AI-Powered Crowd & Traffic Monitoring",
+        "subtitle": "مراقبة المدن الذكية وتحليلات السلامة",
+        "description": "نظام AI للمدن الذكية يجمع بين Object Detection وAction Recognition وخرائط حرارية للمناطق لتحليلات السلامة.",
+        "badge": null,
+        "category": "Smart Cities",
+        "outcome": "Detection + Action Recognition",
+        "tags": ["YOLOv8", "MoViNet", "SORT", "Computer Vision", "Python"],
+        "highlights": [
+          "يجمع عدة نماذج إدراكية لفهم الحركة والازدحام وحالة المرور لحظيًا.",
+          "يستخدم Zone-based Analytics وHeatmaps لدعم مراقبة السلامة في الوقت الحقيقي."
+        ],
+        "url": "https://github.com/Osama12145"
       }
     ]
   },
@@ -140,7 +218,15 @@
   },
   "skills": {
     "title": "الخبرات والأدوات",
-    "subtitle": "من أساسيات ML إلى أنظمة AI الإنتاجية — الأدوات التي أستخدمها لبناء الحلول الذكية."
+    "subtitle": "من LangGraph وQdrant إلى PyTorch وDocker، هذه هي الأدوات التي أقف عليها عند بناء أنظمة AI.",
+    "categories": {
+      "agenticAi": "Agentic AI & Automation",
+      "ragSystems": "LLMs & RAG Pipelines",
+      "computerVision": "Computer Vision",
+      "ml": "ML & Deep Learning",
+      "data": "Data Science",
+      "engineering": "Engineering & Delivery"
+    }
   },
   "contact": {
     "sectionLabel": "تواصل معي",

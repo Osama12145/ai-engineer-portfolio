@@ -1,32 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-
-const skillCategories = [
-  {
-    label: "Agentic AI & Automation",
-    skills: ["n8n", "LangChain", "CrewAI", "AutoGen", "OpenWebUI", "AI Agents"],
-  },
-  {
-    label: "LLMs & RAG Pipelines",
-    skills: ["RAG Pipelines", "Prompt Engineering", "OpenAI API", "Ollama", "ChromaDB", "Embeddings", "Fine-Tuning"],
-  },
-  {
-    label: "Computer Vision",
-    skills: ["YOLOv8", "U-Net", "Semantic Segmentation", "Object Detection", "PyTorch", "OpenCV"],
-  },
-  {
-    label: "ML & Deep Learning",
-    skills: ["TensorFlow", "PyTorch", "scikit-learn", "Hugging Face", "NLP", "NLTK", "Keras", "XGBoost"],
-  },
-  {
-    label: "Data Science",
-    skills: ["Pandas", "NumPy", "Matplotlib", "Power BI", "Data Pipelines", "Feature Engineering"],
-  },
-  {
-    label: "Engineering & DevOps",
-    skills: ["Python", "SQL", "Flask", "FastAPI", "REST APIs", "Git", "Linux", "Docker", "AWS", "Coolify"],
-  },
-];
+import { skillCategories } from "@/data/skills";
 
 const pillVariant = {
   hidden: { opacity: 0, y: 20, scale: 0.9 },
@@ -58,7 +32,7 @@ const SkillsSection = () => {
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
             {t("skills.title")}
           </h2>
-          <p className="text-muted-foreground max-w-lg">
+          <p className="text-muted-foreground max-w-2xl">
             {t("skills.subtitle")}
           </p>
         </motion.div>
@@ -66,13 +40,13 @@ const SkillsSection = () => {
         <div className="space-y-10">
           {skillCategories.map((cat) => (
             <motion.div
-              key={cat.label}
+              key={cat.labelKey}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
               <h3 className="text-xs font-semibold text-primary mb-4 uppercase tracking-[0.2em]">
-                {cat.label}
+                {t(cat.labelKey)}
               </h3>
               <div className="flex flex-wrap gap-3">
                 {cat.skills.map((skill) => {

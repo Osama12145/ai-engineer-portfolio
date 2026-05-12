@@ -212,73 +212,79 @@ const ProjectsSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
           {remainingProjects.map((project, index) => (
             <motion.article
               key={project.title}
               variants={item}
-              className={`group relative overflow-hidden rounded-[1.5rem] border border-border/50 bg-card/35 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 ${
-                index === 0 ? "xl:col-span-2" : ""
+              className={`group relative overflow-hidden rounded-[1.75rem] border border-border/50 bg-card/35 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 md:p-7 ${
+                index === 0 ? "lg:col-span-2" : ""
               }`}
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(217_91%_60%_/_0.16),transparent_30%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <div className="relative">
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary">
-                    {project.category}
-                  </span>
-                  <span className="inline-flex rounded-full border border-border/50 bg-background/40 px-3 py-1 text-[11px] text-foreground/70">
-                    {project.outcome}
-                  </span>
+              <div className={`relative grid h-full gap-6 ${index === 0 ? "xl:grid-cols-[1.05fr_0.95fr]" : ""}`}>
+                <div className="flex min-w-0 flex-col">
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary">
+                      {project.category}
+                    </span>
+                    <span className="inline-flex rounded-full border border-border/50 bg-background/40 px-3 py-1 text-[11px] text-foreground/70">
+                      {project.outcome}
+                    </span>
+                  </div>
+
+                  {project.badge && (
+                    <span className="mb-4 inline-flex w-fit rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary medal-pulse">
+                      {project.badge}
+                    </span>
+                  )}
+                  <h3 className="mb-3 text-2xl font-heading font-semibold leading-snug [overflow-wrap:anywhere] group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="mb-4 text-sm font-medium leading-6 text-primary/80">
+                    {project.subtitle}
+                  </p>
+                  <p className="mb-6 text-sm leading-7 text-muted-foreground">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-auto flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-[10px] rounded-full border border-border/50 bg-secondary/30 text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {project.badge && (
-                  <span className="inline-block text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 mb-4 medal-pulse">
-                    {project.badge}
-                  </span>
-                )}
-                <h3 className="text-xl font-heading font-semibold mb-2 leading-snug group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-primary/80 font-medium mb-3">
-                  {project.subtitle}
-                </p>
-                <p className="text-sm text-muted-foreground mb-5 line-clamp-3 leading-relaxed min-h-[4.5rem]">
-                  {project.description}
-                </p>
-                <div className="space-y-2 mb-5">
+                <div className="flex min-w-0 flex-col rounded-2xl border border-border/40 bg-background/30 p-4">
+                  <div className="space-y-3 mb-5">
                   {project.highlights.slice(0, 2).map((highlight) => (
                     <div key={highlight} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                      <p className="text-sm text-foreground/80 leading-6">{highlight}</p>
+                      <p className="text-sm text-foreground/80 leading-7">{highlight}</p>
                     </div>
                   ))}
-                </div>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-[10px] rounded-full border border-border/50 bg-secondary/30 text-muted-foreground"
-                    >
-                      {tag}
+                  </div>
+                  <div className="mt-auto flex flex-col gap-3 border-t border-border/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                    <span className="min-w-0 text-xs text-muted-foreground [overflow-wrap:anywhere]">
+                      {getRepoPath(project.url)}
                     </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between gap-4 pt-4 border-t border-border/40">
-                  <span className="text-xs text-muted-foreground truncate">
-                    {getRepoPath(project.url)}
-                  </span>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-primary font-medium group-hover:gap-3 transition-all duration-300 shrink-0"
-                  >
-                    <FolderGit2 size={15} />
-                    {t("projects.viewProject")}
-                    <ArrowUpRight size={14} className={isRTL ? "rotate-180" : ""} />
-                  </a>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-primary font-medium group-hover:gap-3 transition-all duration-300 shrink-0"
+                    >
+                      <FolderGit2 size={15} />
+                      {t("projects.viewProject")}
+                      <ArrowUpRight size={14} className={isRTL ? "rotate-180" : ""} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.article>

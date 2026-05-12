@@ -75,6 +75,9 @@
     "moreLabel": "مشاريع أخرى",
     "openRepo": "فتح المستودع",
     "viewProject": "عرض على GitHub",
+    "liveDemo": "جرّب المشروع",
+    "showcaseLabel": "مشروعان AI جاهزان للتجربة والإنتاج",
+    "labLabel": "مساحة مختصرة لتجارب، Benchmarks، وأنظمة AI تطبيقية.",
     "items": [
       {
         "featured": true,
@@ -135,7 +138,8 @@
           "نفذت multilingual semantic search باستخدام embed-multilingual-v3.0 مع Qdrant وحدود تشابه قابلة للضبط.",
           "سلّمت واجهتين معًا: Streamlit للمستخدم النهائي وFastAPI REST API للتكامل البرمجي، وكل ذلك داخل Docker Compose."
         ],
-        "url": "https://github.com/Osama12145/rag_system_ar"
+        "url": "https://github.com/Osama12145/rag_system_ar",
+        "demoUrl": "https://ai.osama1.site/"
       },
       {
         "title": "YouHealth — AI Medical Chatbot",

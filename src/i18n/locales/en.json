@@ -75,6 +75,9 @@
     "moreLabel": "More Projects",
     "openRepo": "Open Repository",
     "viewProject": "View on GitHub",
+    "liveDemo": "Try Live Demo",
+    "showcaseLabel": "Two production-grade AI builds",
+    "labLabel": "Compact lab of experiments, benchmarks, and applied AI systems.",
     "items": [
       {
         "featured": true,
@@ -135,7 +138,8 @@
           "Implemented multilingual semantic search using embed-multilingual-v3.0 with configurable similarity thresholds.",
           "Delivered both a Streamlit UI and a FastAPI REST API, fully containerized for one-command deployment."
         ],
-        "url": "https://github.com/Osama12145/rag_system_ar"
+        "url": "https://github.com/Osama12145/rag_system_ar",
+        "demoUrl": "https://ai.osama1.site/"
       },
       {
         "title": "YouHealth — AI Medical Chatbot",

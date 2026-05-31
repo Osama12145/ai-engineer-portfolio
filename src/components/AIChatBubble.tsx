@@ -9,7 +9,10 @@ interface Message {
   content: string;
 }
 
-const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL || "";
+const CHAT_WEBHOOK_URL =
+  import.meta.env.VITE_PORTFOLIO_AGENT_URL ||
+  import.meta.env.VITE_N8N_WEBHOOK_URL ||
+  "";
 
 /*
  * ── SECURITY NOTE ─────────────────────────────────────────
@@ -87,12 +90,12 @@ const AIChatBubble = () => {
     setLoading(true);
 
     try {
-      if (!N8N_WEBHOOK_URL) throw new Error("Chat service unavailable");
+      if (!CHAT_WEBHOOK_URL) throw new Error("Chat service unavailable");
 
       // Send only last N messages to limit payload size
       const recentHistory = messages.slice(-MAX_HISTORY);
 
-      const res = await fetch(N8N_WEBHOOK_URL, {
+      const res = await fetch(CHAT_WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

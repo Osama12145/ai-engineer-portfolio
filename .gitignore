@@ -10,6 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.npm-cache
+.venv
+backend/.venv
+__pycache__
+*.py[cod]
+backend/data/*.db
 *.local
 
 # Environment variables

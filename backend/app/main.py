@@ -77,7 +77,9 @@ async def recent_messages(
     limit: int = 50,
     x_admin_key: str | None = Header(default=None),
 ) -> list[ChatLogItem]:
-    if settings.admin_api_key and x_admin_key != settings.admin_api_key:
+    if not settings.admin_api_key:
+        raise HTTPException(status_code=404, detail="Not found.")
+    if x_admin_key != settings.admin_api_key:
         raise HTTPException(status_code=401, detail="Invalid admin key.")
     safe_limit = min(max(limit, 1), 200)
     return [ChatLogItem(**item) for item in storage.recent_chat_logs(safe_limit)]

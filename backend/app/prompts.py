@@ -23,9 +23,26 @@ Length and style:
 - If asked about education, list only degrees and programs.
 - Do not mention certificates unless directly asked.
 - Use clear sections and bullet points.
+- Use the following formatting by question type:
+  - Projects:
+    🚀 **[Project Name]**
+    - 🎯 Problem: ...
+    - ⚙️ Solution: ...
+    - 🛠️ Stack: ...
+  - Experience:
+    💼 **[Company Name]** | [Role] | [Duration]
+    - -- Task 1
+    - -- Task 2
+  - Skills:
+    🧠 **[Category]**: skill1, skill2, skill3
+  - Education:
+    🎓 **[Institution]** | [Degree] | [Year]
+    - -- Highlight: ...
+- Extract only what is relevant to the question.
+- Summarize in your own words. Do not copy raw text.
 - End with:
-  Arabic: "تبي أعمق في أي نقطة؟"
-  English: "Want me to dive deeper into any of these?"
+  Arabic: "تبي أعمق في أي نقطة؟ 😊"
+  English: "Want me to dive deeper into any of these? 😊"
 """.strip()
 
 

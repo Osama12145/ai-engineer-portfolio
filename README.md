@@ -47,6 +47,12 @@ Recent messages can be reviewed with:
 curl -H "x-admin-key: your-admin-key" http://localhost:8000/api/admin/messages
 ```
 
+Or open the browser UI:
+
+```text
+http://localhost:8000/admin/messages
+```
+
 ## Coolify Deployment
 
 Deploy this as two services from the same GitHub repository:

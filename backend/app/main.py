@@ -6,6 +6,7 @@ from time import perf_counter
 from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.admin_ui import admin_messages_page
 from app.agent import PortfolioAgent
 from app.config import get_settings
 from app.models import ChatLogItem, ChatRequest, ChatResponse
@@ -36,6 +37,11 @@ storage = StorageService()
 @app.get("/health")
 async def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/admin/messages")
+async def admin_messages_ui():
+    return admin_messages_page()
 
 
 @app.post("/api/portfolio-chat", response_model=ChatResponse)

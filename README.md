@@ -15,7 +15,12 @@ Set `VITE_PORTFOLIO_AGENT_URL` to the backend endpoint:
 http://localhost:8000/api/portfolio-chat
 ```
 
-`VITE_N8N_WEBHOOK_URL` can remain as an optional fallback during migration.
+The n8n fallback is disabled by default. To enable it during migration, set:
+
+```text
+VITE_ENABLE_N8N_FALLBACK=true
+VITE_N8N_WEBHOOK_URL=https://your-n8n-domain.com/webhook/portfolio-chat
+```
 
 ## Backend
 
@@ -41,3 +46,23 @@ Recent messages can be reviewed with:
 ```bash
 curl -H "x-admin-key: your-admin-key" http://localhost:8000/api/admin/messages
 ```
+
+## Coolify Deployment
+
+Deploy this as two services from the same GitHub repository:
+
+1. Frontend static/Vite service from the repository root.
+   - Build command: `npm install && npm run build`
+   - Output directory: `dist`
+   - Required build-time env:
+     `VITE_PORTFOLIO_AGENT_URL=https://your-backend-domain.com/api/portfolio-chat`
+
+2. Backend Docker service using `backend/Dockerfile`.
+   - Build context: `backend`
+   - Exposed port: `8000`
+   - Required runtime env:
+     `OPENROUTER_API_KEY`
+     `ADMIN_API_KEY`
+     `ALLOWED_ORIGINS=https://osama1.site,https://www.osama1.site`
+
+If the browser still calls n8n, the frontend was built without `VITE_PORTFOLIO_AGENT_URL` or an old cached deployment is still being served.

@@ -11,7 +11,9 @@ interface Message {
 
 const CHAT_WEBHOOK_URL =
   import.meta.env.VITE_PORTFOLIO_AGENT_URL ||
-  import.meta.env.VITE_N8N_WEBHOOK_URL ||
+  (import.meta.env.VITE_ENABLE_N8N_FALLBACK === "true"
+    ? import.meta.env.VITE_N8N_WEBHOOK_URL
+    : "") ||
   "";
 
 /*

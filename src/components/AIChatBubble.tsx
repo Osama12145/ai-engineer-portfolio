@@ -120,8 +120,12 @@ const AIChatBubble = () => {
       }
 
       setMessages((prev) => [...prev, { role: "assistant", content: output || t("chat.noResponse") }]);
-    } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: t("chat.errorMessage") }]);
+    } catch (error) {
+      const message =
+        error instanceof Error && error.message === "Chat service unavailable"
+          ? "Chat service is not configured. Please set VITE_PORTFOLIO_AGENT_URL and redeploy."
+          : t("chat.errorMessage");
+      setMessages((prev) => [...prev, { role: "assistant", content: message }]);
     } finally {
       setLoading(false);
     }

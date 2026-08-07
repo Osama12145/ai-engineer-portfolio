@@ -35,11 +35,13 @@ storage = StorageService()
 
 
 @app.get("/health")
+@app.get("/api/health")
 async def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
 @app.get("/admin/ui")
+@app.get("/api/admin/ui")
 async def admin_messages_ui():
     return admin_messages_page()
 

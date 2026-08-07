@@ -62,6 +62,8 @@ The repository is configured as two Vercel Services in `vercel.json`:
 - Vite frontend at `/`
 - FastAPI backend at `/api`
 
+The production admin UI is available at `/api/admin/ui`.
+
 Required production environment variable:
 
 ```text

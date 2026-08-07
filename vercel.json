@@ -1,18 +1,23 @@
 {
   "services": {
     "frontend": {
-      "entrypoint": ".",
-      "routePrefix": "/",
+      "root": ".",
       "framework": "vite"
     },
     "backend": {
-      "entrypoint": "backend/main.py",
-      "routePrefix": "/api",
-      "memory": 1024,
-      "maxDuration": 60,
-      "includeFiles": [
-        "backend/data/knowledge/**"
-      ]
+      "root": "backend/",
+      "entrypoint": "main:app",
+      "framework": "fastapi"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": { "service": "backend" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "frontend" }
+    }
+  ]
 }

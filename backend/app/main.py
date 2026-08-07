@@ -39,11 +39,12 @@ async def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/admin/messages")
+@app.get("/admin/ui")
 async def admin_messages_ui():
     return admin_messages_page()
 
 
+@app.post("/portfolio-chat", response_model=ChatResponse)
 @app.post("/api/portfolio-chat", response_model=ChatResponse)
 async def portfolio_chat(request: ChatRequest, http_request: Request) -> ChatResponse:
     started = perf_counter()
@@ -78,6 +79,7 @@ async def portfolio_chat(request: ChatRequest, http_request: Request) -> ChatRes
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+@app.get("/admin/messages", response_model=list[ChatLogItem])
 @app.get("/api/admin/messages", response_model=list[ChatLogItem])
 async def recent_messages(
     limit: int = 50,

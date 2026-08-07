@@ -14,7 +14,7 @@ const CHAT_WEBHOOK_URL =
   (import.meta.env.VITE_ENABLE_N8N_FALLBACK === "true"
     ? import.meta.env.VITE_N8N_WEBHOOK_URL
     : "") ||
-  "";
+  "/api/portfolio-chat";
 
 /*
  * ── SECURITY NOTE ─────────────────────────────────────────
@@ -92,8 +92,6 @@ const AIChatBubble = () => {
     setLoading(true);
 
     try {
-      if (!CHAT_WEBHOOK_URL) throw new Error("Chat service unavailable");
-
       // Send only last N messages to limit payload size
       const recentHistory = messages.slice(-MAX_HISTORY);
 
@@ -120,12 +118,8 @@ const AIChatBubble = () => {
       }
 
       setMessages((prev) => [...prev, { role: "assistant", content: output || t("chat.noResponse") }]);
-    } catch (error) {
-      const message =
-        error instanceof Error && error.message === "Chat service unavailable"
-          ? "Chat service is not configured. Please set VITE_PORTFOLIO_AGENT_URL and redeploy."
-          : t("chat.errorMessage");
-      setMessages((prev) => [...prev, { role: "assistant", content: message }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "assistant", content: t("chat.errorMessage") }]);
     } finally {
       setLoading(false);
     }

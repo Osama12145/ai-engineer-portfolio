@@ -9,7 +9,9 @@ pnpm install
 pnpm run dev
 ```
 
-Set `VITE_PORTFOLIO_AGENT_URL` to the backend endpoint:
+When frontend and backend are deployed together with Vercel Services, the frontend
+uses `/api/portfolio-chat` automatically. For a separately hosted backend, set
+`VITE_PORTFOLIO_AGENT_URL` to its endpoint:
 
 ```text
 http://localhost:8000/api/portfolio-chat
@@ -50,8 +52,31 @@ curl -H "x-admin-key: your-admin-key" http://localhost:8000/api/admin/messages
 Or open the browser UI:
 
 ```text
-http://localhost:8000/admin/messages
+http://localhost:8000/admin/ui
 ```
+
+## Vercel Deployment
+
+The repository is configured as two Vercel Services in `vercel.json`:
+
+- Vite frontend at `/`
+- FastAPI backend at `/api`
+
+Required production environment variable:
+
+```text
+OPENROUTER_API_KEY=your-private-key
+```
+
+Optional environment variables:
+
+```text
+ADMIN_API_KEY=your-private-admin-key
+OPENROUTER_TEXT_MODEL=openai/gpt-5-mini
+```
+
+SQLite uses Vercel's temporary `/tmp` filesystem, so admin chat logs can reset
+between function instances or deployments. Use a managed database for durable logs.
 
 ## Coolify Deployment
 

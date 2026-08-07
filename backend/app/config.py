@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -7,6 +8,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
+DEFAULT_DATABASE_URL = (
+    "sqlite:////tmp/portfolio_agent.db"
+    if os.getenv("VERCEL")
+    else f"sqlite:///{(DATA_DIR / 'portfolio_agent.db').as_posix()}"
+)
 
 
 class Settings(BaseSettings):
@@ -30,7 +36,7 @@ class Settings(BaseSettings):
         default="http://localhost:5173,https://osama1.site,https://www.osama1.site"
     )
     knowledge_file: str = Field(default=(DATA_DIR / "knowledge" / "osama_profile.md").as_posix())
-    database_url: str = Field(default=f"sqlite:///{(DATA_DIR / 'portfolio_agent.db').as_posix()}")
+    database_url: str = Field(default=DEFAULT_DATABASE_URL)
     admin_api_key: str = Field(default="")
 
     @property
